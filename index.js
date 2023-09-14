@@ -1,3 +1,5 @@
+process.env.GOOGLE_APPLICATION_CREDENTIALS = '../json-keys/service-account-pubsub-publisher.json';
+
 const topicNameOrId = 'projects/learning-gcp-396121/topics/topic-1';
 const data = JSON.stringify({foo: 'bar'});
 
@@ -21,8 +23,6 @@ async function publishMessage(topicNameOrId, data) {
 
 for (let i = 0; i < 10; i++){
     publishMessage(topicNameOrId, data)
-    // add delay to avoid rate limit
-    await new Promise(resolve => setTimeout(resolve, 1000));
     console.log(`Message ${i} published.`);
 }
   

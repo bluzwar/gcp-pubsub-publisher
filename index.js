@@ -1,7 +1,6 @@
-process.env.GOOGLE_APPLICATION_CREDENTIALS = '../json-keys/service-account-pubsub-publisher.json';
+process.env.GOOGLE_APPLICATION_CREDENTIALS = '../json-keys/learning-gcp-396121-b153d54f5c8d.json';
 
 const topicNameOrId = 'projects/learning-gcp-396121/topics/topic-1';
-const data = JSON.stringify({foo: 'bar'});
 
 const {PubSub} = require('@google-cloud/pubsub');
 
@@ -21,6 +20,7 @@ async function publishMessage(topicNameOrId, data) {
     }
   }
 
+const data = 'Hello, World!';
 for (let i = 0; i < 10; i++){
     publishMessage(topicNameOrId, data)
     console.log(`Message ${i} published.`);
